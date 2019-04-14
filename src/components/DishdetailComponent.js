@@ -27,8 +27,10 @@ class DishDetail extends Component {
             const handledComments = comments.map((comment) => {
                 return (
                     <div key={comment.id}>
-                        <li>{comment.comment}</li>
-                        <li>-- {comment.author}, {comment.date}</li>
+                        <ul className="list-unstyled">
+                            <li>{comment.comment}</li>
+                            <li>-- {comment.author}, {comment.date}</li>
+                        </ul>
                     </div>
                 );
             });
@@ -36,9 +38,7 @@ class DishDetail extends Component {
             return (
                 <div className="col-12 col-md-5 m-1">
                     <h4>Comments</h4>
-                    <ul className="list-unstyled">
-                        {handledComments}
-                    </ul>
+                    {handledComments}
                 </div>
             );
         }
