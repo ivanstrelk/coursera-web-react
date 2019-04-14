@@ -8,11 +8,6 @@ import {
 } from 'reactstrap';
 
 class DishDetail extends Component {
-
-    constructor(props) {
-        super(props);
-    }
-
     renderDish(dish) {
         return (
             <div className="col-12 col-md-5 m-1">
@@ -31,19 +26,17 @@ class DishDetail extends Component {
         if (comments != null) {
             const handledComments = comments.map((comment) => {
                 return (
-                    <div key={comment.id}>
+                    <ul key={comment.id} className="list-unstyled">
                         <li>{comment.comment}</li>
                         <li>-- {comment.author}, {comment.date}</li>
-                    </div>
+                    </ul>
                 );
             });
 
             return (
                 <div className="col-12 col-md-5 m-1">
                     <h4>Comments</h4>
-                    <ul className="list-unstyled">
-                        {handledComments}
-                    </ul>
+                    {handledComments}
                 </div>
             );
         }
@@ -69,7 +62,6 @@ class DishDetail extends Component {
             <div></div>
         );
     }
-
 }
 
 export default DishDetail;
