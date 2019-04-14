@@ -8,11 +8,6 @@ import {
 } from 'reactstrap';
 
 class DishDetail extends Component {
-
-    constructor(props) {
-        super(props);
-    }
-
     renderDish(dish) {
         return (
             <div className="col-12 col-md-5 m-1">
@@ -69,7 +64,6 @@ class DishDetail extends Component {
             <div></div>
         );
     }
-
 }
 
 export default DishDetail;
