@@ -26,12 +26,10 @@ class DishDetail extends Component {
         if (comments != null) {
             const handledComments = comments.map((comment) => {
                 return (
-                    <div key={comment.id}>
-                        <ul className="list-unstyled">
-                            <li>{comment.comment}</li>
-                            <li>-- {comment.author}, {comment.date}</li>
-                        </ul>
-                    </div>
+                    <ul key={comment.id} className="list-unstyled">
+                        <li>{comment.comment}</li>
+                        <li>-- {comment.author}, {comment.date}</li>
+                    </ul>
                 );
             });
 
