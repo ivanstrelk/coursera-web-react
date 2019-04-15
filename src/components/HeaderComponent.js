@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import {Navbar, NavbarBrand, Jumbotron} from 'reactstrap';
+import React, { Component } from 'react';
+import { Navbar, NavbarBrand, Jumbotron } from 'reactstrap';
 
 class Header extends Component {
 
-    render() {
+    render () {
         return (
             <React.Fragment>
                 <Navbar dark>
