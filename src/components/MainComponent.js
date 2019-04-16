@@ -26,11 +26,16 @@ class Main extends Component {
 
     render () {
         const HomePage = () => {
+            const {
+                dishes,
+                promotions,
+                leaders
+            } = this.state;
             return (
                 <Home
-                    dish={ this.state.dishes.filter((dish) => dish.featured)[ 0 ] }
-                    promotion={ this.state.promotions.filter((promo) => promo.featured)[ 0 ] }
-                    leader={ this.state.leaders.filter((leader) => leader.featured)[ 0 ] }
+                    dish={ dishes.filter((dish) => dish.featured)[ 0 ] }
+                    promotion={ promotions.filter((promo) => promo.featured)[ 0 ] }
+                    leader={ leaders.filter((leader) => leader.featured)[ 0 ] }
                 />
             );
         }
