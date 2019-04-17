@@ -38,7 +38,17 @@ class Main extends Component {
                     leader={ leaders.filter((leader) => leader.featured)[ 0 ] }
                 />
             );
-        }
+        };
+
+
+        const DishWithId = ({ match }) => {
+            const { dishes, comments} = this.state;
+            return (
+                <DishDetail
+                    dish={ dishes.filter((dish) => dish.id === parseInt(match.params.dishId, 10))[ 0 ] }
+                    comments={ comments.filter((comment) => comment.dishId === parseInt(match.params.dishId, 10)) }/>
+            );
+        };
 
         return (
             <div>
@@ -46,6 +56,7 @@ class Main extends Component {
                 <Switch>
                     <Route path='/home' component={ HomePage }/>
                     <Route exact path='/menu' component={ () => <Menu dishes={ this.state.dishes }/> }/>
+                    <Route path='/menu/:dishId' component={ DishWithId }/>
                     <Route exact path='/contactus' component={ Contact }/>} />
                     <Redirect to="/home"/>
                 </Switch>
