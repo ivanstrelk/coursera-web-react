@@ -145,7 +145,7 @@ const DishDetail = (props) => {
             );
         }
     else if (props.errMess) {
-            return(
+            return (
                 <div className="container">
                     <div className="row">
                         <h4>{props.errMess}</h4>
@@ -153,7 +153,7 @@ const DishDetail = (props) => {
                 </div>
             );
         }
-    else if (props.dish != null)
+    else if (props.dish != null) {
         return (
             <div className="container">
                 <div className="row">

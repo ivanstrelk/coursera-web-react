@@ -48,9 +48,9 @@ class Main extends Component {
         const HomePage = () => {
             return (
                 <Home
-                    dish={ dishes.filter((dish) => dish.featured)[ 0 ] }
-                    dishesLoading={this.props.dishes.isLoading}
-                    dishesErrMess={this.props.dishes.errMess}
+                    dish={ dishes.dishes.filter((dish) => dish.featured)[ 0 ] }
+                    dishesLoading={dishes.isLoading}
+                    dishesErrMess={dishes.errMess}
                     promotion={ promotions.filter((promo) => promo.featured)[ 0 ] }
                     leader={ leaders.filter((leader) => leader.featured)[ 0 ] }
                 />
@@ -61,9 +61,9 @@ class Main extends Component {
         const DishWithId = ({ match }) => {
             return (
                 <DishDetail
-                    dish={ dishes.filter((dish) => dish.id === parseInt(match.params.dishId, 10))[ 0 ] }
-                    isLoading={this.props.dishes.isLoading}
-                    errMess={this.props.dishes.errMess}
+                    dish={ dishes.dishes.filter((dish) => dish.id === parseInt(match.params.dishId, 10))[ 0 ] }
+                    isLoading={dishes.isLoading}
+                    errMess={dishes.errMess}
                     comments={ comments.filter((comment) => comment.dishId === parseInt(match.params.dishId, 10)) }
                     addComment={addComment} />
             );
