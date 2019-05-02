@@ -8,6 +8,17 @@ import { Loading } from './LoadingComponent';
 function RenderCard ({ item }) {
 
     return (
+      if (isLoading) {
+        return(
+                <Loading />
+        );
+      }
+      else if (errMess) {
+          return(
+                  <h4>{errMess}</h4>
+          );
+      }
+      else
         <Card>
             <CardImg src={ item.image } alt={ item.name }/>
             <CardBody>
