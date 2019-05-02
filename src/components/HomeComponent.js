@@ -3,6 +3,7 @@ import {
     Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle
 } from 'reactstrap';
+import { Loading } from './LoadingComponent';
 
 function RenderCard ({ item }) {
 
