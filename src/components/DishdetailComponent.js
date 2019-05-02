@@ -47,8 +47,8 @@ class CommentForm extends Component {
 
 
     handleSubmit (values) {
-        console.log('Current State is: ' + JSON.stringify(values));
-        alert('Current State is: ' + JSON.stringify(values));
+        this.toggleModal();
+        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
     }
 
 
@@ -102,7 +102,7 @@ class CommentForm extends Component {
 }
 
 
-function RenderComments ({ comments }) {
+function RenderComments ({ comments, addComment, dishId }) {
     if (comments != null) {
         const handledComments = comments.map((comment) => {
             const date = new Intl.DateTimeFormat(
@@ -121,7 +121,7 @@ function RenderComments ({ comments }) {
             <div className="col-12 col-md-5 m-1">
                 <h4>Comments</h4>
                 { handledComments }
-                <CommentForm/>
+                <CommentForm dishId={ dishId } addComment={ addComment }/>
             </div>
         );
     }
@@ -133,7 +133,7 @@ function RenderComments ({ comments }) {
 
 const DishDetail = (props) => {
 
-    const { dish, comments } = props;
+    const { dish, comments, addComment } = props;
     if (dish != null) {
         return (
             <div className="container">
@@ -149,7 +149,8 @@ const DishDetail = (props) => {
                 </div>
                 <div className="row">
                     <RenderDish dish={ dish }/>
-                    <RenderComments comments={ comments }/>
+                    <RenderComments comments={ comments } addComment={ addComment }
+                      dishId={props.dish.id} />
                 </div>
             </div>
         );
