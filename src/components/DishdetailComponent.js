@@ -49,7 +49,7 @@ class CommentForm extends Component {
 
     handleSubmit (values) {
         this.toggleModal();
-        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+        this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
     }
 
 
@@ -103,7 +103,7 @@ class CommentForm extends Component {
 }
 
 
-function RenderComments ({ comments, addComment, dishId }) {
+function RenderComments ({ comments, postComment, dishId }) {
     if (comments != null) {
         const handledComments = comments.map((comment) => {
             const date = new Intl.DateTimeFormat(
@@ -122,7 +122,7 @@ function RenderComments ({ comments, addComment, dishId }) {
             <div className="col-12 col-md-5 m-1">
                 <h4>Comments</h4>
                 { handledComments }
-                <CommentForm dishId={ dishId } addComment={ addComment }/>
+                <CommentForm dishId={ dishId } postComment={ postComment }/>
             </div>
         );
     }
@@ -134,7 +134,7 @@ function RenderComments ({ comments, addComment, dishId }) {
 
 const DishDetail = (props) => {
 
-    const { dish, comments, addComment } = props;
+    const { dish, comments, postComment } = props;
     if (props.isLoading) {
         return (
             <div className="container">
@@ -166,7 +166,7 @@ const DishDetail = (props) => {
                 </div>
                 <div className="row">
                     <RenderDish dish={ dish }/>
-                    <RenderComments comments={ comments } addComment={ addComment }
+                    <RenderComments comments={ comments } postComment={ postComment }
                                     dishId={ props.dish.id }/>
                 </div>
             </div>
